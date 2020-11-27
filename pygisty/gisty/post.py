@@ -5,7 +5,11 @@ import os
 
 def post(authtoken, content, filename):
     print("Uploading " + filename)
-    jsondata = "{\"files\": {\""+os.path.basename(sys.argv[2]).strip("\n")+"\": {\"content\": \""+content+"\"}}}"
+    if len(sys.argv) == 3:
+        filepath = os.path.basename(sys.argv[2]).strip("\n")
+    else:
+        filepath = filename
+    jsondata = "{\"files\": {\""+filepath+"\": {\"content\": \""+content+"\"}}}"
     header = {'User-Agent': "pygisty", "Authorization": "token "+authtoken, "Accept": "application/json"}
     r = requests.Session()
     r.headers.update(header)
