@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pygisty",
-    version="0.0.5",
+    version="0.0.6",
     author="BlyatManGopnik",
     author_email="emailforsurveys420@gmail.com",
     description="Bad GitHub Gist client",

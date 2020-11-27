@@ -1,3 +1,4 @@
+from pygisty.gisty import version
 import sys
 def options(args):
     if args == "--help" or args == "-h":
@@ -7,7 +8,7 @@ def options(args):
         print("-h, --help Prints help")
         sys.exit(0)
     if args == "--version" or args == "-v":
-        print("pygisty v0.0.5")
+        print("pygisty v"+version.version())
         sys.exit(0)
     if args == "--file" or args == "-f":
         print("No file provided. Exiting.")

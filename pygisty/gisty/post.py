@@ -1,10 +1,11 @@
 import json
 import sys
 import requests
+import os
 
 def post(authtoken, content, filename):
     print("Uploading " + filename)
-    jsondata = "{\"files\": {\""+filename.strip("\n")+"\": {\"content\": \""+content+"\"}}}"
+    jsondata = "{\"files\": {\""+os.path.basename(sys.argv[2]).strip("\n")+"\": {\"content\": \""+content+"\"}}}"
     header = {'User-Agent': "pygisty", "Authorization": "token "+authtoken, "Accept": "application/json"}
     r = requests.Session()
     r.headers.update(header)

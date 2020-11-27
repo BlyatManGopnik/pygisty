@@ -1,6 +1,6 @@
 import json
 import sys
-from pygisty.gisty import headless, post
+from pygisty.gisty import headless, post, version
 from pygisty import options
 from appdirs import *
 from pygisty.options import fileoptions
@@ -19,7 +19,7 @@ def main():
     if len(sys.argv) == 2:
         options.options(sys.argv[1])
     clientid = "7da0ffca60ba4ae64eb3"
-    print("pygisty v0.0.5")
+    print("pygisty v"+version.version())
     if os.path.exists(configdir + "/access_token.json") == False:
         authtoken = headless.headless(clientid, configdir)
     else:
@@ -27,7 +27,8 @@ def main():
             jsondata = json.load(configfile)
             authtoken = jsondata["access_token"]
     if len(sys.argv) == 3:
-        sentence = options.fileoptions(sys.argv[2], sys.argv[1])
+        filepath = sys.argv[2]
+        sentence = options.fileoptions(filepath, sys.argv[1])
     else:
         sentence = input("Put a sentence here!: ")
     if len(sys.argv) < 3:
