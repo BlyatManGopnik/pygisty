@@ -8,7 +8,7 @@ def post(authtoken, content, filename):
     header = {'User-Agent': "pygisty", "Authorization": "token "+authtoken, "Accept": "application/json"}
     r = requests.Session()
     r.headers.update(header)
-    request = r.post("https://api.github.com/gists", data=jsondata)
+    request = r.post("https://api.github.com/gists", data=jsondata.encode(encoding='utf-8'))
     dat = json.loads(request.text)
     try:
         error = dat["message"]
