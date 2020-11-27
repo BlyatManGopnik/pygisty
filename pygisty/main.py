@@ -19,7 +19,7 @@ def main():
     if len(sys.argv) == 2:
         options.options(sys.argv[1])
     clientid = "7da0ffca60ba4ae64eb3"
-    print("pygisty v0.0.1")
+    print("pygisty v0.0.5")
     if os.path.exists(configdir + "/access_token.json") == False:
         authtoken = headless.headless(clientid, configdir)
     else:
